@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.testng.Assert;
@@ -77,6 +78,15 @@ Stream.of("Sumi","Rupa","Shibam","Sayan","Atanu").filter(s -> s.length()>4).forE
        boolean flag = lists.stream().anyMatch(s -> s.equalsIgnoreCase("Ayan"));
        System.out.println(flag);
         Assert.assertTrue(flag);
+
+    }
+
+    @Test
+    public void streamCollect(){
+        List<String> ls=Stream.of("Ayan","Sanjay","Amit","Atanu").filter(s ->s.startsWith("A"))
+                .map(s ->s.toUpperCase()).collect(Collectors.toList());
+       System.out.println(ls.get(0));
+
 
     }
 
